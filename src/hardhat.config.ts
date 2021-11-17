@@ -23,7 +23,7 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY;
  */
 export default {
     solidity: "0.8.4",
-    local: {
+    avaxFuji: {
         url: "https://api.avax-test.network/ext/bc/C/rpc",
         chainId: 43113,
         accounts: [PRIVATE_KEY],
