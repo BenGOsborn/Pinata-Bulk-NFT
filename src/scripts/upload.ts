@@ -11,18 +11,18 @@ async function main() {
 
     // Load in the metadata
     const metadata = JSON.parse(fs.readFileSync("metadata/metadata.json", "utf8"));
-    const formData = new FormData();
+    const imgFormData = new FormData();
     for (const item of metadata) {
         const filePath = `metadata/images/${item.image}`;
         const file = fs.createReadStream(filePath);
-        formData.append("file", file, { filepath: `images/${item.image}` });
+        imgFormData.append("file", file, { filepath: `images/${item.image}` });
     }
 
     // Upload the images to IPFS
-    const response = await axios.post("https://api.pinata.cloud/pinning/pinFileToIPFS", formData, {
+    const response = await axios.post("https://api.pinata.cloud/pinning/pinFileToIPFS", imgFormData, {
         maxBodyLength: "Infinity" as any,
         headers: {
-            "Content-Type": `multipart/form-data; boundary=${formData.getBoundary()}`,
+            "Content-Type": `multipart/form-data; boundary=${imgFormData.getBoundary()}`,
             pinata_api_key: PINATA_API_KEY,
             pinata_secret_api_key: PINATA_API_SECRET,
         },
@@ -30,6 +30,9 @@ async function main() {
     const ipfsBaseImageURI = `https://ipfs.io/ipfs/${response.data.IpfsHash}/` as string;
 
     // Upload the metadata to IPFS
+    const jsonFormData = new FormData();
+    for (const item of metadata) {
+    }
 }
 
 main()
