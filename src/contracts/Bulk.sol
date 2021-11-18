@@ -29,7 +29,7 @@ contract Bulk is ERC721 {
     // Get the URI for the token
     function tokenURI(uint256 _tokenId) public view override returns (string memory) {
         require(_exists(_tokenId), "ERC721Metadata: URI query for nonexistent token");
-        return string(abi.encodePacked(_baseURI(), tokenId.toString(), ".json"));
+        return string(abi.encodePacked(_baseURI(), _tokenId.toString(), ".json"));
     }
 
     // Verify that a token may be minted
