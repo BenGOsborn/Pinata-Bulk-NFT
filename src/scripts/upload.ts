@@ -19,7 +19,7 @@ async function main() {
     }
 
     // Upload the images to IPFS
-    const response = await axios.post("https://api.pinata.cloud/pinning/pinFileToIPFS", imgFormData, {
+    const responseImg = await axios.post("https://api.pinata.cloud/pinning/pinFileToIPFS", imgFormData, {
         maxBodyLength: "Infinity" as any,
         headers: {
             "Content-Type": `multipart/form-data; boundary=${imgFormData.getBoundary()}`,
@@ -27,12 +27,26 @@ async function main() {
             pinata_secret_api_key: PINATA_API_SECRET,
         },
     });
-    const ipfsBaseImageURI = `https://ipfs.io/ipfs/${response.data.IpfsHash}/` as string;
+    const ipfsBaseImageURI = `https://ipfs.io/ipfs/${responseImg.data.IpfsHash}` as string;
 
     // Upload the metadata to IPFS
     const jsonFormData = new FormData();
-    for (const item of metadata) {
+    for (const [i, item] of metadata.entries()) {
+        item.image = `${ipfsBaseImageURI}/${item.image}`;
+        const file = Buffer.from(item);
+        jsonFormData.append("file", file, { filepath: `json/${i}.json` });
     }
+
+    // Upload the JSON to IPFS
+    const response = await axios.post("https://api.pinata.cloud/pinning/pinFileToIPFS", jsonFormData, {
+        maxBodyLength: "Infinity" as any,
+        headers: {
+            "Content-Type": `multipart/form-data; boundary=${jsonFormData.getBoundary()}`,
+            pinata_api_key: PINATA_API_KEY,
+            pinata_secret_api_key: PINATA_API_SECRET,
+        },
+    });
+    const ipfsBaseJsonURI = `https://ipfs.io/ipfs/${response.data.IpfsHash}` as string;
 }
 
 main()
