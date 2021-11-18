@@ -27,12 +27,12 @@ async function main() {
             pinata_secret_api_key: PINATA_API_SECRET,
         },
     });
-    const ipfsBaseImageURI = `https://ipfs.io/ipfs/${responseImg.data.IpfsHash}` as string;
+    const ipfsBaseImageURI = `https://ipfs.io/ipfs/${responseImg.data.IpfsHash}/` as string;
 
     // Upload the metadata to IPFS
     const jsonFormData = new FormData();
     for (const [i, item] of metadata.entries()) {
-        item.image = `${ipfsBaseImageURI}/${item.image}`;
+        item.image = `${ipfsBaseImageURI}${item.image}`;
         const file = Buffer.from(JSON.stringify(item));
         jsonFormData.append("file", file, { filepath: `json/${i}.json` });
     }
@@ -46,7 +46,7 @@ async function main() {
             pinata_secret_api_key: PINATA_API_SECRET,
         },
     });
-    const ipfsBaseJsonURI = `https://ipfs.io/ipfs/${responseJson.data.IpfsHash}` as string;
+    const ipfsBaseJsonURI = `https://ipfs.io/ipfs/${responseJson.data.IpfsHash}/` as string;
 
     console.log(ipfsBaseJsonURI);
 
