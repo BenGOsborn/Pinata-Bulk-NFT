@@ -13,15 +13,15 @@ async function main() {
     const metadata = JSON.parse(fs.readFileSync("metadata/metadata.json", "utf8"));
     const formData = new FormData();
     for (const item of metadata) {
-        const filepath = `metadata/images/${item.image}`;
-        const file = fs.createReadStream(filepath);
-        formData.append("file", file, { filepath });
+        const filePath = `metadata/images/${item.image}`;
+        const file = fs.createReadStream(filePath);
+        formData.append("file", file, { filepath: item.image });
     }
 
     const response = await axios.post("https://api.pinata.cloud/pinning/pinFileToIPFS", formData, {
         maxBodyLength: "Infinity" as any,
         headers: {
-            "Content-Type": `multipart/form-data; boundary=${formData._boundary}`,
+            "Content-Type": `multipart/form-data; boundary=${formData.getBoundary()}`,
             pinata_api_key: PINATA_API_KEY,
             pinata_secret_api_key: PINATA_API_SECRET,
         },
