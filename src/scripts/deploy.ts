@@ -1,5 +1,6 @@
 import hre from "hardhat";
 import metadata from "../metadata/metadata.json";
+import storage from "../metadata/storage.json";
 
 async function main() {
     // Declare initialization values
@@ -7,6 +8,8 @@ async function main() {
     const SYMBOL = "BLK";
     const MAX_TOKENS = metadata.length;
     const MINT_FEE = 10;
+    const BASE_URI = storage.baseURI;
+    if (!BASE_URI) throw Error("Base URI: Base URI cannot be empty");
 
     // Deploy the contract
     await hre.run("compile");
