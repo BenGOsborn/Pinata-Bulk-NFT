@@ -48,9 +48,8 @@ async function main() {
     });
     const ipfsBaseJsonURI = `https://ipfs.io/ipfs/${responseJson.data.IpfsHash}/` as string;
 
-    console.log(ipfsBaseJsonURI);
-
-    // **** Now go and update the storage variable
+    // Save the base URI
+    fs.writeFileSync("metadata/storage.json", JSON.stringify({ baseURI: "" }));
 }
 
 main()
