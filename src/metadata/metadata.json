@@ -1,0 +1,36 @@
+{
+    "metadata": [
+        {
+            "description": "Bulk NFT 1.",
+            "external_uri": "https://github.com/BenGOsborn/Pinata-Bulk-NFT",
+            "image": "1.png",
+            "name": "Bulk NFT 1.",
+            "attributes": [
+                {
+                    "trait_type": "Trait 1",
+                    "value": 1
+                },
+                {
+                    "trait_type": "Trait 2",
+                    "value": 2
+                }
+            ]
+        },
+        {
+            "description": "Bulk NFT 2.",
+            "external_uri": "https://github.com/BenGOsborn/Pinata-Bulk-NFT",
+            "image": "2.png",
+            "name": "Bulk NFT 2.",
+            "attributes": [
+                {
+                    "trait_type": "Trait 1",
+                    "value": 1
+                },
+                {
+                    "trait_type": "Trait 2",
+                    "value": 2
+                }
+            ]
+        }
+    ]
+}
