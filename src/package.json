@@ -2,7 +2,7 @@
     "name": "src",
     "version": "1.0.0",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "deploy": "npx hardhat run scripts/deploy.ts"
     },
     "devDependencies": {
         "@nomiclabs/hardhat-ethers": "^2.0.2",

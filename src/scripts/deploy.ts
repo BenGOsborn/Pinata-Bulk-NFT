@@ -5,7 +5,7 @@ async function main() {
     // Declare initialization values
     const NAME = "Bulk";
     const SYMBOL = "BLK";
-    const MAX_TOKENS = metadata.metadata.length;
+    const MAX_TOKENS = metadata.length;
     const MINT_FEE = 10;
 
     // Deploy the contract

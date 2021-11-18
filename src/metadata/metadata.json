@@ -1,36 +1,34 @@
-{
-    "metadata": [
-        {
-            "description": "Bulk NFT 0.",
-            "external_uri": "https://github.com/BenGOsborn/Pinata-Bulk-NFT",
-            "image": "0.svg",
-            "name": "Bulk NFT 0.",
-            "attributes": [
-                {
-                    "trait_type": "Trait 0",
-                    "value": 0
-                },
-                {
-                    "trait_type": "Trait 1",
-                    "value": 1
-                }
-            ]
-        },
-        {
-            "description": "Bulk NFT 1.",
-            "external_uri": "https://github.com/BenGOsborn/Pinata-Bulk-NFT",
-            "image": "1.svg",
-            "name": "Bulk NFT 1.",
-            "attributes": [
-                {
-                    "trait_type": "Trait 0",
-                    "value": 0
-                },
-                {
-                    "trait_type": "Trait 1",
-                    "value": 1
-                }
-            ]
-        }
-    ]
-}
+[
+    {
+        "description": "Bulk NFT 0.",
+        "external_uri": "https://github.com/BenGOsborn/Pinata-Bulk-NFT",
+        "image": "0.svg",
+        "name": "Bulk NFT 0.",
+        "attributes": [
+            {
+                "trait_type": "Trait 0",
+                "value": 0
+            },
+            {
+                "trait_type": "Trait 1",
+                "value": 1
+            }
+        ]
+    },
+    {
+        "description": "Bulk NFT 1.",
+        "external_uri": "https://github.com/BenGOsborn/Pinata-Bulk-NFT",
+        "image": "1.svg",
+        "name": "Bulk NFT 1.",
+        "attributes": [
+            {
+                "trait_type": "Trait 0",
+                "value": 0
+            },
+            {
+                "trait_type": "Trait 1",
+                "value": 1
+            }
+        ]
+    }
+]
