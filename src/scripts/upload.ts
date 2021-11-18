@@ -15,7 +15,7 @@ async function main() {
     for (const item of metadata) {
         const filePath = `metadata/images/${item.image}`;
         const file = fs.createReadStream(filePath);
-        formData.append("file", file, { filepath: item.image });
+        formData.append("file", file, { filepath: `images/${item.image}` });
     }
 
     const response = await axios.post("https://api.pinata.cloud/pinning/pinFileToIPFS", formData, {
