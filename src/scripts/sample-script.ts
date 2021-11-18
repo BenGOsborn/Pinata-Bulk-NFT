@@ -14,7 +14,6 @@ async function main() {
     const Bulk = await hre.ethers.getContractFactory("Bulk");
     const bulk = await Bulk.deploy(NAME, SYMBOL, MAX_TOKENS, MINT_FEE);
     await bulk.deployed();
-
     console.log(`${NAME} deployed to: ${bulk.address}`);
 }
 
