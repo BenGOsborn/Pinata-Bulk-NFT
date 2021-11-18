@@ -16,7 +16,7 @@ async function main() {
     const Bulk = await hre.ethers.getContractFactory(NAME);
     const bulk = await Bulk.deploy(NAME, SYMBOL, MAX_TOKENS, MINT_FEE, BASE_URI);
     await bulk.deployed();
-    console.log(`${NAME} deployed to: ${bulk.address}`);
+    console.log(`${NAME} deployed to: https://testnet.snowtrace.io/address/${bulk.address}`);
 }
 
 main()
