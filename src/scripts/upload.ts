@@ -47,6 +47,8 @@ async function main() {
         },
     });
     const ipfsBaseJsonURI = `https://ipfs.io/ipfs/${response.data.IpfsHash}` as string;
+
+    // **** Now go and update the storage variable
 }
 
 main()
