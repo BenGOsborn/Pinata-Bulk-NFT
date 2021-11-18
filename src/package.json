@@ -2,7 +2,8 @@
     "name": "src",
     "version": "1.0.0",
     "scripts": {
-        "upload": "npx hardhat run scripts/upload.ts"
+        "upload": "npx hardhat run scripts/upload.ts",
+        "deploy": "npx hardhat run --network avaxFuji scripts/deploy.ts"
     },
     "devDependencies": {
         "@nomiclabs/hardhat-ethers": "^2.0.2",
