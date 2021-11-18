@@ -26,12 +26,14 @@ contract Bulk is ERC721 {
         return baseURI;
     }
 
+    // Verify that a token may be minted
     modifier mintable {
         require(tokenId + 1 < maxTokens, "Bulk: Max number of tokens has already been reached");
         require(msg.value >= mintFee, "Bulk: Not enough funds to mint token");
         _;
     }
 
+    // Mint a new token
     function mint() external payable mintable {
         _mint(_msgSender(), tokenId++);
     }
