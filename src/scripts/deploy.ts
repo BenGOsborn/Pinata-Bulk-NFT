@@ -9,7 +9,7 @@ async function main() {
     const MAX_TOKENS = metadata.length;
     const MINT_FEE = 10;
     const BASE_URI = storage.baseURI;
-    if (!BASE_URI) throw Error("Base URI: Base URI cannot be empty");
+    if (!BASE_URI) throw Error("Base URI error: Base URI cannot be empty");
 
     // Deploy the contract
     await hre.run("compile");
