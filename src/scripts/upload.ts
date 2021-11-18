@@ -33,12 +33,12 @@ async function main() {
     const jsonFormData = new FormData();
     for (const [i, item] of metadata.entries()) {
         item.image = `${ipfsBaseImageURI}/${item.image}`;
-        const file = Buffer.from(item);
+        const file = Buffer.from(JSON.stringify(item));
         jsonFormData.append("file", file, { filepath: `json/${i}.json` });
     }
 
     // Upload the JSON to IPFS
-    const response = await axios.post("https://api.pinata.cloud/pinning/pinFileToIPFS", jsonFormData, {
+    const responseJson = await axios.post("https://api.pinata.cloud/pinning/pinFileToIPFS", jsonFormData, {
         maxBodyLength: "Infinity" as any,
         headers: {
             "Content-Type": `multipart/form-data; boundary=${jsonFormData.getBoundary()}`,
@@ -46,7 +46,9 @@ async function main() {
             pinata_secret_api_key: PINATA_API_SECRET,
         },
     });
-    const ipfsBaseJsonURI = `https://ipfs.io/ipfs/${response.data.IpfsHash}` as string;
+    const ipfsBaseJsonURI = `https://ipfs.io/ipfs/${responseJson.data.IpfsHash}` as string;
+
+    console.log(ipfsBaseJsonURI);
 
     // **** Now go and update the storage variable
 }
