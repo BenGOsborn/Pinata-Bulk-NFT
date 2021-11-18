@@ -18,6 +18,7 @@ async function main() {
         formData.append("file", file, { filepath: `images/${item.image}` });
     }
 
+    // Upload the images to IPFS
     const response = await axios.post("https://api.pinata.cloud/pinning/pinFileToIPFS", formData, {
         maxBodyLength: "Infinity" as any,
         headers: {
@@ -26,7 +27,8 @@ async function main() {
             pinata_secret_api_key: PINATA_API_SECRET,
         },
     });
-    console.log(response);
+    const ipfsBaseImageURI = `https://ipfs.io/ipfs/${response.data.IpfsHash}` as string;
+    console.log(ipfsBaseImageURI);
 }
 
 main()
