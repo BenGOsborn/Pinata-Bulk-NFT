@@ -27,8 +27,9 @@ async function main() {
             pinata_secret_api_key: PINATA_API_SECRET,
         },
     });
-    const ipfsBaseImageURI = `https://ipfs.io/ipfs/${response.data.IpfsHash}` as string;
-    console.log(ipfsBaseImageURI);
+    const ipfsBaseImageURI = `https://ipfs.io/ipfs/${response.data.IpfsHash}/` as string;
+
+    // Upload the metadata to IPFS
 }
 
 main()
