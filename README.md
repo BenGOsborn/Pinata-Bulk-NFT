@@ -9,7 +9,7 @@ Uploading massive amounts of NFT assets and metadata without gas fees has never 
 ### Requirements
 
 -   Node==v10.19.0
--   NPM=6.14.4
+-   NPM==6.14.4
 
 ### Instructions
 
